@@ -34,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -58,6 +58,15 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="418,756.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -81,26 +90,56 @@
         </ui:InputDialog.Result>
       </ui:InputDialog>
     </Sequence>
-    <Sequence DisplayName="Slack" sap:VirtualizedContainerService.HintSize="476,1036.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="Slack" sap:VirtualizedContainerService.HintSize="798,1458.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Slack | Kate Hendricks, Thomas Tucker | Social" sap:VirtualizedContainerService.HintSize="434,944.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Slack | Kate Hendricks, Thomas Tucker | Social" sap:VirtualizedContainerService.HintSize="756,1366.66666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" Version="V1">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,726.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="722,1148.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NClick ClickType="Single" DisplayName="Click 'Search UiPath'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Search UiPath'" sap:VirtualizedContainerService.HintSize="680,382" sap2010:WorkflowViewState.IdRef="NCheckState_1">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,152" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please Click Ok once you've logged In&quot;]" />
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="https://app.slack.com/client/TM5ETFLBY/DLZGQ1GHH" DesignTimeRectangle="689, 118, 500, 24" ElementType="Button" FriendlyName="'Search UiPath'" FullSelectorArgument="&lt;webctrl aaname='Search UiPath' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Search UiPath' tag='BUTTON' type='button' check:text='Search UiPath' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAfgAAAAcCAYAAACNiq1fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAU2SURBVHhe7d3tT5V1HMfx/oH+A9d61lPXlluzR1iuZW1N3VpJrVKnUlGmUxIRE7VAUDAkREAkQ0GQQLlRiLtAFIhb503/zDc+X3edXeeGBcdjHM7eD14DzvW7bnj0vn6/60JfeuPlDQYAADILgQcAIANFBT5rXZbt2Jhte97dY3vf2wsAANKcmq12q+HhpkcCrw0atHX9Nnvn1c226ZW3AQBAmlOz1W41PBz5SOBVfw1ItDMAAEhvarhaHhd4lZ+ZOwAAa5MarpbHBV7r+Il2AAAAa4NaTuABAMgwBB4AgAyUdOBP5/5kk8NT9nTuqT2eeWx9bX32zYe5Ccem0pHP8+3B4IR/TbQ9rPO3Th+b88FXUZ9fLm2w+QfzfoySAyX+ffXJah+n8U/n/3lm8XfT73jheFXU/stRfqTcxu7eizs3AAD/h6QCn7v1W5sYmrDfK5tsy2vv2+HsPOu53uNfE41PpVQHXjcq9wceWNnhs5HAaz+N2/76dmu52OJjdSMQPkasG5daI/sJgQcArKakAq94TY9OLyuyqZbqwIc/jw28fLd9v02N/O37hMfG6mnuJfAAgLSRVOCL9xfbw6mH1n2923Zt3h23/WzeOZsZm/El7pl7s1aRX+Gfa2xHY6c9mn7k20a6R3w1QNuGbg9ZV1OXzY3P2fTYtB346KDVldTb/MSCL5frOL8WVXuUtXrwx5UOW5h8aE9mn1hvS69lv/Vp1DXIcgIvullRkP8r8HoE0d/e7+cMn7e//U//fYKlfY3V8cb7x63rWrf/vtJa2+orHuFrAQDgRUgq8IqUQh08fx/sHLSCXcd8W8HOAg/m1fNXfVxlYaVHU8v32nazvt1DqdiP3hn1pW3tN3x72J93H9pxyH/WTcLs+Kzvr58Ldxf6/gry3P05u3X1lsf158WbDcX/l2PPxoU9b+B1jbqJ0c2Kzl16qMyaq5v9c12nrrfm9CUfq+uPncHrJkiPMbTUf/FUjV/niX0nImMAAHhRkgp8QNG929bns1PFTM+pr5xrjIrqx29+sjhT/ysSwjAFUTcH+l6BbLpwLbJNAdcMP3bGqyDr+Pqqn4MoJ1pCTzbwwUxcs/TxvnF/Th/eP6Br1kpC8H1s4MNL9OHzBGMAAHhRnivwAc3OFS/FTpELAhmmqGom21jeaFMjUz7z1+cKo46hr+FIxwYzsJLAx95sBDRWjwLyPvshYeATnVc0c2+rbfNHCIq/rj8YS+ABAOkkJYHXLF3L7ZqB67n5aO+ofxY7Tm+k6/m5ZsSKvYK4VOBTMYPXsr2W+YtyiqI+b6u76TPzLzftXFHgtVqha8r/4qhfVzjqBB4AkE6SCnxDWYOHLvizOD0n16z25Nen/LPJoUmrK67zCOo5ecXR87ZvS44HcKBjwOOuZ/aK7FKBVwg1yw6ewRd/X+J/j76SwOvcA52Dfq167q/rqfqxyhYmFiKPDFYSeF2j3iHQcXQ9ejYfDnxvyx2/adB5CTwAYDUlFXjFUv+wjS+z6035xdDpDfdg+1L/CM6Zg6X+opk+1yy/peaGvz2vfWIDr4jWn7nsb8oH59Db+CsJvOjGIvZa9cKbjq/tKwm8bgqCN/d1TL31H4zVtQZvy9cu3twQeADAakoq8AAAIL0ReAAAMhCBBwAgAyUMvP6TeP1n8Yl2AAAA6U0NV8vjAr9jY7ZtXb8t4U4AACC9qeFqeVzgs9Zlefk1gJk8AABrg5qtdqvhanlc4IPIq/4apHV8AACQ3tRstTscd4kKPAAAyAwEHgCAjLPB/gWYhSMmITUz3AAAAABJRU5ErkJggg==" InformativeScreenshot="40da412ebd8eebcc2dafd1c69e799c0e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Slack | Sean Burns | Customer Ops | 1 new item' /&gt;" SearchSteps="FuzzySelector">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="697, 121, 80, 18" ElementType="Text" FriendlyName="'Search UiPath'" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' aaname='Search UiPath' check:text='Search UiPath' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAWCAYAAABe+7umAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPXSURBVFhH7ZZLT1NBFMf9JG7duzNxB3GDJsaQGBWNCixARRECyFN5aXmDgOVRXiKP8pICpUAtBQuFgqUthIdf5tj/IXMz9wKRC8PuLv657cyZM2d+c+bMXEu4nkiW1MkCqlgWUMWygCqWBVSxLKCKpQNanfWZtla26Sh6RAc7B7Q0sURv7mfpBlyFCp8X0eZyiL+n9ctyfXexbea9V7r23ro+im3G2EdNTg3/tlfa2Q72R7G/x4qvDWts+9iuG38eNRU20dri+om5ZWlAsx68pZA/RD9ahyjpxl3KTymg+ZF5/soDrkKqgSIxNnybVJ/foAHFONgl30wmZ4eTbQFe9mHUWNe4Ng4yBRTG4UD4XItSLdVA5XYjUOhdcjZtr/7hMbKtUfOjnosDtWXbaG97j9wjbkq7k37CsKGgkXbWdvjI7KxHqLmomdthOz3gov3wPvetulc529Hnn/XT3NAcRYNRCq+FKedhLjlqeigW2uXjBz/fKuwMAafjZ/807W7t0WHkkDxOD6XcfqqLAToPUAjJAQD/A4qS5p3y8pzyvN6pX7weUSpgC39Bb5Dmht28Xmi8e5xPtPCtAUUjwIj6uexappK0Uu4rSS3hAAdbBtmutayVg0Q5QN9kzxQHBriBhQAfFYxbmV3hepX3JI//Y1MiwQiPx/+y9DIeDwDRjSjNDM7wYr7ENxewv5Ye28m6LFDEiKRBcmDuurx6GrWPcjviRLyd1V1si/iNGYqkQ1lE6eio6uQ4yzPKNRvdpQRhkYvxywj0MRh1pr9xQLeIR7cexzPxtzaxLASAzcBvBDTUNqz1ARgyWN5RCADgH1/8FxBOO5IXBSoyDVkYXApynZXHCyFmnBTx2whUPvLyPMLmBFAhZB+M4RxORUCysAjs1EDTQPwIbXNmox2BwAe+MhRjgEJmgBo3Vwi2KC0Fzz6cCvS0eSFk5kT3BJckwEb8wlYpUGQhji8yDHUv4Alwm9EONybqH3YccBHAWUBVZCjKAMpGRWaFrn3CMcmZ9zIh1RRQnEbEVPSimOOSIV4KaF99HzsWzyTUOexa5esqbtvyb5HD5uBJUeeai1soIymTJ/RN+xgmai4WdRZQTIwsEjXU9r6G34NmgGJuX7ykIFbUbcTT/qmddkO7WgkyAxQx4g6AH8SD2ioD9TgXeJMwrymgCA4PeT62uMnjjnEDi/6zHv21uXVcmNGOLHZ2jvHtjjFGoAi6p7aXb3IxB14LZoBC2EhjrLgg4B/9ZoBiE8TLAj7xKhG2iFXc5t3xZDIF1JIaWUAVywKqWBZQxbKAKpYFVKkS6R904iBFyc2JRwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Search UiPath'" sap:VirtualizedContainerService.HintSize="680,168" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://app.slack.com/client/TM5ETFLBY/CM9NUB34L/thread/CM4J57RA7-1609798600.003700" DesignTimeRectangle="689, 118, 500, 24" ElementType="Button" FriendlyName="'Search UiPath'" FullSelectorArgument="&lt;webctrl aaname='Search UiPath' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Search UiPath' tag='BUTTON' type='button' check:text='Search UiPath' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAfgAAAAcCAYAAACNiq1fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAU2SURBVHhe7d3tT5V1HMfx/oH+A9d61lPXlluzR1iuZW1N3VpJrVKnUlGmUxIRE7VAUDAkREAkQ0GQQLlRiLtAFIhb503/zDc+X3edXeeGBcdjHM7eD14DzvW7bnj0vn6/60JfeuPlDQYAADILgQcAIANFBT5rXZbt2Jhte97dY3vf2wsAANKcmq12q+HhpkcCrw0atHX9Nnvn1c226ZW3AQBAmlOz1W41PBz5SOBVfw1ItDMAAEhvarhaHhd4lZ+ZOwAAa5MarpbHBV7r+Il2AAAAa4NaTuABAMgwBB4AgAyUdOBP5/5kk8NT9nTuqT2eeWx9bX32zYe5Ccem0pHP8+3B4IR/TbQ9rPO3Th+b88FXUZ9fLm2w+QfzfoySAyX+ffXJah+n8U/n/3lm8XfT73jheFXU/stRfqTcxu7eizs3AAD/h6QCn7v1W5sYmrDfK5tsy2vv2+HsPOu53uNfE41PpVQHXjcq9wceWNnhs5HAaz+N2/76dmu52OJjdSMQPkasG5daI/sJgQcArKakAq94TY9OLyuyqZbqwIc/jw28fLd9v02N/O37hMfG6mnuJfAAgLSRVOCL9xfbw6mH1n2923Zt3h23/WzeOZsZm/El7pl7s1aRX+Gfa2xHY6c9mn7k20a6R3w1QNuGbg9ZV1OXzY3P2fTYtB346KDVldTb/MSCL5frOL8WVXuUtXrwx5UOW5h8aE9mn1hvS69lv/Vp1DXIcgIvullRkP8r8HoE0d/e7+cMn7e//U//fYKlfY3V8cb7x63rWrf/vtJa2+orHuFrAQDgRUgq8IqUQh08fx/sHLSCXcd8W8HOAg/m1fNXfVxlYaVHU8v32nazvt1DqdiP3hn1pW3tN3x72J93H9pxyH/WTcLs+Kzvr58Ldxf6/gry3P05u3X1lsf158WbDcX/l2PPxoU9b+B1jbqJ0c2Kzl16qMyaq5v9c12nrrfm9CUfq+uPncHrJkiPMbTUf/FUjV/niX0nImMAAHhRkgp8QNG929bns1PFTM+pr5xrjIrqx29+sjhT/ysSwjAFUTcH+l6BbLpwLbJNAdcMP3bGqyDr+Pqqn4MoJ1pCTzbwwUxcs/TxvnF/Th/eP6Br1kpC8H1s4MNL9OHzBGMAAHhRnivwAc3OFS/FTpELAhmmqGom21jeaFMjUz7z1+cKo46hr+FIxwYzsJLAx95sBDRWjwLyPvshYeATnVc0c2+rbfNHCIq/rj8YS+ABAOkkJYHXLF3L7ZqB67n5aO+ofxY7Tm+k6/m5ZsSKvYK4VOBTMYPXsr2W+YtyiqI+b6u76TPzLzftXFHgtVqha8r/4qhfVzjqBB4AkE6SCnxDWYOHLvizOD0n16z25Nen/LPJoUmrK67zCOo5ecXR87ZvS44HcKBjwOOuZ/aK7FKBVwg1yw6ewRd/X+J/j76SwOvcA52Dfq167q/rqfqxyhYmFiKPDFYSeF2j3iHQcXQ9ejYfDnxvyx2/adB5CTwAYDUlFXjFUv+wjS+z6035xdDpDfdg+1L/CM6Zg6X+opk+1yy/peaGvz2vfWIDr4jWn7nsb8oH59Db+CsJvOjGIvZa9cKbjq/tKwm8bgqCN/d1TL31H4zVtQZvy9cu3twQeADAakoq8AAAIL0ReAAAMhCBBwAgAyUMvP6TeP1n8Yl2AAAA6U0NV8vjAr9jY7ZtXb8t4U4AACC9qeFqeVzgs9Zlefk1gJk8AABrg5qtdqvhanlc4IPIq/4apHV8AACQ3tRstTscd4kKPAAAyAwEHgCAjLPB/gWYhSMmITUz3AAAAABJRU5ErkJggg==" InformativeScreenshot="6ac88cfc9c59dd9378b168a7a772cf94.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Slack | help-apps | Customer Ops | 1 new item' /&gt;" SearchSteps="FuzzySelector, Image">
                     <uix:TargetAnchorable.Anchors>
@@ -111,7 +150,7 @@
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
               </uix:NClick>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'I'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,230" sap2010:WorkflowViewState.IdRef="NTypeInto_4" Text="[searchValue]">
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'I'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="680,230" sap2010:WorkflowViewState.IdRef="NTypeInto_4" Text="[searchValue]">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://app.slack.com/client/TM5ETFLBY/DP0FKL8CV/thread/CM4J57RA7-1609798600.003700" DesignTimeRectangle="628, 126, 676, 22" FriendlyName="'P'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' tag='P' type='' aaname='' /&gt;" ImageBase64="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" InformativeScreenshot="b97deb3554d539a6a3e3b6a3e3301f25.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Slack | Outlook Calendar Bot | Customer Ops' /&gt;" SearchSteps="FuzzySelector, Image">
                     <uix:TargetAnchorable.Anchors>
@@ -122,7 +161,7 @@
                   </uix:TargetAnchorable>
                 </uix:NTypeInto.Target>
               </uix:NTypeInto>
-              <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,155.333333333333" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" Shortcuts="[d(hk)][k(enter)][u(hk)]" />
+              <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="680,155.333333333333" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" Shortcuts="[d(hk)][k(enter)][u(hk)]" />
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
